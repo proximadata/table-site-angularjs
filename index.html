@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Proxima Data Control, www.proximadata.io">
+    <link rel="icon" type="image/x-icon" href="public/images/favicon.ico" />
+    <base href = "" />
+
+    <title>Your brand name</title>
+
+    <!-- Styles -->
+    <link href="public/styles/lib//bootstrap.min.css" rel="stylesheet">
+    <link href="public/styles/lib/fontawesome-all.css" rel="stylesheet">
+    <link href="public/styles/site.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="public/js/lib/jquery-3.2.1.min.js"></script>
+    <script src="public/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="public/js/lib/jquery-ui.min.js"></script>
+    <script src="public/js/lib/angularjs/angular.min.js"></script>
+    <script src="public/js/lib/angularjs/angular-resource.min.js"></script>
+    <script src="public/js/lib/angularjs/angular-sanitize.min.js"></script>
+    <script src="public/js/lib/moment-with-locales.min.js"></script>
+
+<style>
+
+
+</style>
+<script>
+    function runPlayPause(trackName, buttonObject){
+        var src = 'tracks/' + trackName + '.mp3';
+        var playerButton = $(buttonObject);
+        var player = $('#playerObject');
+        var playerObject = player[0];
+        if (player && playerObject){
+            if (playerObject.paused){
+                // Find button that is paused
+                /*
+                var pausedButton = $('.fa-pause');
+                if (pausedButton && pausedButton[0]){
+                    pausedButton.removeClass('fa-pause');
+                    pausedButton.addClass('fa-play');
+                }
+                */
+                if (playerObject.src.indexOf(src) == -1){
+                    playerObject.src = src;
+                }
+                playerObject.play();
+            } else {
+                if (playerObject.src.indexOf(src) == -1){
+                    playerObject.src = src;
+                    playerObject.play();
+                } else {
+                    playerObject.pause();
+                }
+            }
+/*
+            if (src != playerObject.src){
+                playerObject.onplay = function(){
+                    playerButton.removeClass('fa-play');
+                    playerButton.addClass('fa-pause');
+                };
+                playerObject.onpause = function(){
+                    playerButton.removeClass('fa-pause');
+                    playerButton.addClass('fa-play');
+                };
+            }*/
+
+            
+        }
+    }
+</script>
+</head>
+
+<body class="theme-dark">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <img class="logo" src="public/images/logo.png"/>
+        <a class="navbar-brand" href="#">YOUR BRAND NAME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">YOUR BRAND NAME</h1>
+    </header>
+
+    <audio controls id="playerObject" hidden="hidden">
+        <source type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Enter generated script here -->
+    <div class="row text-center">
+
+            <script src="https://www.proximadata.io/userapi/applogic/5ad3fcc1f8f1f100147c126a/type/angularjs/user/5a7b6f7fd35c400014ee0e86/code/"></script>
+            <div id="proxima-data-app-5ad3fcc1f8f1f100147c126a-element" ng-controller="itemsData" 
+                class="table proxima-data-container-5ad3fcc1f8f1f100147c126a">
+            <div ng-show="dataLoading" style="width: 100%; height: 30px; text-align: center;"><img src="https://www.proximadata.io/public/images/loader.gif" style="height: 30px;"/></div>
+               <table class="col-md-8 offset-md-2">
+                   <thead>
+                       <tr>
+                           <th ng-repeat="field in fields">
+                               {{field.name}}
+                                   </th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr ng-repeat="item in items">
+                           <td ng-repeat="field in fields">
+                               <div class="block-item {{generateClassName(field.name)}}" bind-html-compile="item[field.name].view"></div>
+                           </td>
+            <!--               <td>
+                               <div title="Thumbnail" class="block-item" bind-html-compile="item['Thumbnail'].view"></div>
+                           </td>
+                           <td>
+                               <div title="Name" class="block-item" bind-html-compile="item['Name'].view"></div>
+                           </td>
+                           <td>
+                               <div title="Duration" class="block-item" bind-html-compile="item['Duration'].view"></div>
+                           </td>
+            -->           </tr>
+                   </tbody>
+               </table>
+            
+                <div class="text-center" ng-show="pagingType=='loadmorebutton'"><button class="btn btn-primary" ng-click="loadPageData()">Load more...</button></div>
+               <div ng-show="pagingData.pagingEnabled">
+                   <a href="{{pagePrevLink}}"  class="page-link page-prev" target="_parent" ng-class="{'link-disabled': !pagingData.prevPage}">Prev</a>
+                   <a href="{{basePageLink + pageNumber}}" class="page-link"  target="_parent" ng-class="{'link-disabled': (pageNumber == currentPage)}"  ng-repeat="pageNumber in pagesNumbers track by $index" >{{pageNumber}}</a>
+                   <a href="{{pageNextLink}}"  class="page-link page-next" target="_parent"  ng-class="{'link-disabled': !pagingData.nextPage}">Next</a>
+               </div>
+            </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container text-center container-social">
+        <div class="social-link">
+            <a href="www.twitter.com/account">
+                <i class="fab fa-twitter twitter"></i>Twitter
+            </a>
+        </div>
+        <div class="social-link">
+            <a href="www.youtube.com/account">
+                <i class="fab fa-youtube youtube"></i>Youtube channel
+            </a>
+        </div>
+        <div class="social-link">
+            <a href="www.instagram.com/account">
+                <i class="fab fa-instagram instagram"></i>Instagram
+            </a>
+        </div>
+        <div class="social-link">
+            <a href="mailto:info@myemail.com">
+                <i class="far fa-envelope email"></i>Email me
+            </a>
+        </div>
+    </div>
+    <div class="container text-center">
+        <p class="m-0 text-center text-white">Copyright &copy; YOUR BRAND 2018</p>
+    </div>
+</footer>
+
+</body>
+</html>
