@@ -15,7 +15,9 @@ Clone or download all files to your computer. Then, from any file explorer, clic
 * [jQuery UI 1.12.1](https://jqueryui.com/) - jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library
 * [momentjs](http:/momentjs.com/) - Parse, validate, manipulate, and display dates and times in JavaScript
 * [fontawesome](https://fontawesome.com/) - Get vector icons and social logos on your website
- 
+
+## Demo
+[Simple list of music beats](https://proximadata.github.io/table-site-angularjs/)  
 
 ## Authors
 

@@ -76,6 +76,21 @@ body.theme-light .social-link a:hover {
     color: #a2c1e2;
 }
 
+body.theme-dark footer {
+    background-color: #343a40
+}
+
+body.theme-light footer {
+    background-color: #e7e8e9
+}
+body.theme-dark copyright {
+    color: #ffffff;
+}
+body.theme-light copyright {
+    color: #525050;
+}
+
+
 .social-link i {
     margin-right: 10px;
 }

@@ -27,57 +27,9 @@
     <script src="public/js/lib/angularjs/angular-sanitize.min.js"></script>
     <script src="public/js/lib/moment-with-locales.min.js"></script>
 
-<style>
-
-
-</style>
-<script>
-    function runPlayPause(trackName, buttonObject){
-        var src = 'tracks/' + trackName + '.mp3';
-        var playerButton = $(buttonObject);
-        var player = $('#playerObject');
-        var playerObject = player[0];
-        if (player && playerObject){
-            if (playerObject.paused){
-                // Find button that is paused
-                /*
-                var pausedButton = $('.fa-pause');
-                if (pausedButton && pausedButton[0]){
-                    pausedButton.removeClass('fa-pause');
-                    pausedButton.addClass('fa-play');
-                }
-                */
-                if (playerObject.src.indexOf(src) == -1){
-                    playerObject.src = src;
-                }
-                playerObject.play();
-            } else {
-                if (playerObject.src.indexOf(src) == -1){
-                    playerObject.src = src;
-                    playerObject.play();
-                } else {
-                    playerObject.pause();
-                }
-            }
-/*
-            if (src != playerObject.src){
-                playerObject.onplay = function(){
-                    playerButton.removeClass('fa-play');
-                    playerButton.addClass('fa-pause');
-                };
-                playerObject.onpause = function(){
-                    playerButton.removeClass('fa-pause');
-                    playerButton.addClass('fa-play');
-                };
-            }*/
-
-            
-        }
-    }
-</script>
 </head>
 
-<body class="theme-dark">
+<body class="theme-light">
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -124,6 +76,7 @@
     <!-- Enter generated script here -->
     <div class="row text-center">
 
+        <!-- Remove code from here and insert your own -->
             <script src="https://www.proximadata.io/userapi/applogic/5ad3fcc1f8f1f100147c126a/type/angularjs/user/5a7b6f7fd35c400014ee0e86/code/"></script>
             <div id="proxima-data-app-5ad3fcc1f8f1f100147c126a-element" ng-controller="itemsData" 
                 class="table proxima-data-container-5ad3fcc1f8f1f100147c126a">
@@ -161,7 +114,7 @@
                    <a href="{{pageNextLink}}"  class="page-link page-next" target="_parent"  ng-class="{'link-disabled': !pagingData.nextPage}">Next</a>
                </div>
             </div>
-
+        <!-- End of removing part -->
     </div>
     <!-- /.row -->
 
@@ -169,7 +122,7 @@
 <!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5 bg-dark">
+<footer class="py-5">
     <div class="container text-center container-social">
         <div class="social-link">
             <a href="www.twitter.com/account">
@@ -193,7 +146,7 @@
         </div>
     </div>
     <div class="container text-center">
-        <p class="m-0 text-center text-white">Copyright &copy; YOUR BRAND 2018</p>
+        <p class="m-0 text-center copyright">Copyright &copy; YOUR BRAND 2018</p>
     </div>
 </footer>
 
